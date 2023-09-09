@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    color: #ffffff;
+    background-color: #202020;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.crypto {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #333333;
+    cursor: pointer;
+}
+
+.crypto:hover {
+    background-color: #333333;
+}
+
+.copy-message {
+    display: none;
+    color: #00cc00;
+    position: absolute;
+    text-align: center;
+    bottom: 4%
+}
+
+#progress-bar {
+    display: none;
+    width: 0%;
+    background-color: #00cc00;
+    height: 5px;
+    position: absolute;
+    bottom: 0;
+}
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Donation Page</h1>
+        <div class="crypto" onclick="copyToClipboard('BTC_ADD_1')">
+            <p>BTC</p>
+            <p id="BTC_ADD_1">bc1qqlhjqsq77thdtd7whl0lqecrgs5qxz20rmpcka</p>
+        </div>
+        <div class="crypto" onclick="copyToClipboard('ETH_ADD_1')">
+            <p>ETH</p>
+            <p id="ETH_ADD_1">0xdd21Ba48272E7d8a231297bb1253639687E8DD89</p>
+        </div>
+        <div class="crypto" onclick="copyToClipboard('ETH_ADD_1')">
+            <p>LTC</p>
+            <p id="LTC_ADD_1">ltc1qalx2lklhzxyqh3czet7nntca355sus5e82zkd2</p>
+        </div>
+        <div class="crypto" onclick="copyToClipboard('ETH_ADD_1')">
+            <p>XRP</p>
+            <p id="XRP_ADD_1">rG3JG2QtFz7EXohRby7JstK848ppcsk4hy</p>
+        </div>
+        <div class="crypto" onclick="copyToClipboard('ETH_ADD_1')">
+            <p>DOGE</p>
+            <p id="DOGE_ADD_1">D84MULTTTgaBkh9xo1VxRE41PjBiJys8oa</p>
+        </div>
+        <div class="crypto" onclick="copyToClipboard('ETH_ADD_1')">
+            <p>TRX</p>
+            <p id="TRX_ADD_1">TPnikNWyP9fkQejea5UBFcaun9yr7Mh4Bm</p>
+        </div>
+        <div class="crypto" onclick="copyToClipboard('ETH_ADD_1')">
+            <p>SOL</p>
+            <p id="SOL_ADD_1">5RWxTsEsqsomqhGuFaBkXGXs8CVPZMKZTxdF6t1gaCcR</p>
+        </div>
+        <div class="crypto" onclick="copyToClipboard('ETH_ADD_1')">
+            <p>MATIC</p>
+            <p id="MATIC_ADD_1">0x79586c64464f1cefdE89b7aCC3c0719e274c8539</p>
+        </div>
+        <!-- other cryptocurrencies here -->
+        <div id="copy-message" class="copy-message">Copied to clipboard!</div>
+        <div id="progress-bar"></div>
+    </div>
+    <script>
+        function copyToClipboard(id) {
+            const el = document.createElement('textarea');
+            el.value = document.getElementById(id).innerText;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+
+            const messageEl = document.getElementById('copy-message');
+            const progressBarEl = document.getElementById('progress-bar');
+            messageEl.style.display = 'block';
+            progressBarEl.style.display = 'block';
+            setTimeout(function() {
+                messageEl.style.display = 'none';
+            }, 1500);
+
+        }
+    </script>
+</body>
+</html>
