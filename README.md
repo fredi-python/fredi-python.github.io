@@ -1,1 +1,1 @@
-# fredi.github.io
+# fredi-python.github.io
